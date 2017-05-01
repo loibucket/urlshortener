@@ -2,27 +2,33 @@
 <html>
 	<head>
 		<meta charset="UTF-8" />
-		<title>Timestamp</title>
+		<title>URL Shortener</title>
 	</head>
 <body>
 
-<h1>Timestamp microservice</h1>
+<h1>URL Shortener Microservice</h1>
 <p>
-1) I can pass a string as a parameter, and it will check to see whether that string contains either a unix timestamp or a natural language date (example: January 1, 2016)
+I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.
 <br>
-2) If it does, it returns both the Unix timestamp and the natural language form of that date.
-<br>
-3) If it does not contain a date or Unix timestamp, it returns null for those properties.
+When I visit that shortened URL, it will redirect me to my original link.
 <br><br>
-Example usage:
+Example creation usage:
 <br>
-https://timestamp-ap.herokuapp.com/December%2015,%202015
+https://little-url.herokuapp.com/new/https://www.google.com
 <br>
-https://timestamp-ap.herokuapp.com/1450137600
+https://little-url.herokuapp.com/new/http://foo.com:80
 <br><br>
-Example output:
+Example creation output
 <br>
-{ "unix": 1450137600, "natural": "December 15, 2015" }
+{ "original_url":"http://foo.com:80", "short_url":"https://little-url.herokuapp.com/8170" }
+<br><br>
+Usage:
+<br>
+https://little-url.herokuapp.com/2871
+<br>
+Will redirect to:
+<br>
+https://www.google.com/
 </p>
 </body>
 
