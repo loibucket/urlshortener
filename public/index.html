@@ -17,10 +17,22 @@ body{
   margin-left: 20px;
 }
 
+input{
+	width:300px;
+}
+
 </style>
 <body>
 
+<div class = 'row text-center'>
 <h1>URL Shortener Microservice</h1>
+URL <input id='urlInput'></input>
+<button id='urlButton'>Shorten</button>
+<div id ='urlOut'></div>
+</div>
+
+<br><br>
+<h2>API Usage</h2>
 <p>
 I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.
 <br>
@@ -44,10 +56,6 @@ Will redirect to:
 <br>
 https://www.google.com/
 </p>
-
-URL: <input id='urlInput'></input>
-<button id='urlButton'>Shorten</button>
-<div id ='urlOut'></div>
 
 <br><br>
 </body>
