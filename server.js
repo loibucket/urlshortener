@@ -64,7 +64,7 @@ app.get('/new/:id*', function (req, res) {
   if (!re_weburl.test(urlString)){
     
     var error = {};
-    error.error = "Wrong url format, make sure you have a valid protocol and real site.";
+    error.short_url = "Wrong url format, make sure you have a valid protocol and real site.";
     res.json(error);
     
   } else {
@@ -126,7 +126,7 @@ function saveOne(){
     
     if (theOne != null){
       
-      console.log('already exists:' + newUrl);
+      console.log('already exists:' + 'https://www.google.com');
       
     } else {
       
