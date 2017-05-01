@@ -132,7 +132,7 @@ function saveOne(){
       
       var newUrl = new urlModel({ 
         original_url: 'https://www.google.com',
-        short_url: 'https://urle.herokuapp.com/1'
+        short_url: 'http://urle.herokuapp.com/1'
        });
       
       newUrl.save(function (err, newUrl) {
