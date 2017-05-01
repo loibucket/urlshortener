@@ -30,6 +30,7 @@ var urlSchema = mongoose.Schema({
 
 var urlModel = mongoose.model('url', urlSchema);
 
+//connected
 db.once('open', function() {
   // we're connected!
   saveOne();
@@ -38,6 +39,7 @@ db.once('open', function() {
   });
 });
 
+//handle shortened urls
 app.get('/:id', function (req, res) {
   
   var fullUrl = req.protocol + '://' + req.get('host').split(':')[0] + req.originalUrl;
@@ -54,6 +56,7 @@ app.get('/:id', function (req, res) {
   
 });
 
+//handle new shorten requests
 app.get('/new/:id*', function (req, res) {
   
   //var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
@@ -75,6 +78,7 @@ app.get('/new/:id*', function (req, res) {
 
 });
 
+//handle url shortening
 function handleUrlString(urlString, hostUrl, res){
   
   urlModel.findOne({'original_url':urlString}, function(err, theOne){
@@ -83,6 +87,7 @@ function handleUrlString(urlString, hostUrl, res){
     
     if (theOne != null){
       
+      // already exists
       var urlObject = theOne.toObject();
       delete urlObject['_id'];
       delete urlObject['__v'];
@@ -90,6 +95,7 @@ function handleUrlString(urlString, hostUrl, res){
       
     } else {
       
+      //get the next available number
       urlModel.count({}, function( err, count){
       
       if (err) return console.error(err);
@@ -118,6 +124,7 @@ function handleUrlString(urlString, hostUrl, res){
   
 }
 
+//setup link #1
 function saveOne(){
   
   urlModel.findOne({'original_url':'https://www.google.com'}, function(err, theOne){
