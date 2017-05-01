@@ -68,13 +68,12 @@ URL: <input id='urlInput'></input>
 <script>
 
 	$('#urlButton').click(function(){
-    var newUrl = $('#urlInput').val();
-    var api = "https://urle.herokuapp.com/new/"+newUrl;
-
-    $.getJSON(api, function(data){
-      $('#urlOut').html('<a href ='+data.short_url+'>'+data.short_url+'</a>');
-    });
-
+	    var newUrl = $('#urlInput').val();
+	    var api = "https://urle.herokuapp.com/new/"+newUrl;
+	
+		$.getJSON(api, function(data){
+		      $('#urlOut').html('<a href ='+data.short_url+'>'+data.short_url+'</a>');
+		});
 	});
 
 </script>
